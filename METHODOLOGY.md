@@ -52,9 +52,9 @@ This creates a **therapeutic window** for selective cancer cell killing.
 
 **Website**: https://depmap.org/
 
-### Release Used: 24Q2 (2024 Quarter 2)
+### Release Used: Latest Quarterly Release
 
-This is the most recent complete public release at the time of analysis.
+This analysis uses the most recent DepMap public release available. DepMap releases new data quarterly (e.g., 24Q2, 24Q4, 25Q1). The specific release version is defined in `01_download_depmap_data.R` and should be updated as new releases become available.
 
 ## Datasets
 
@@ -376,7 +376,7 @@ This enables:
 
 1. Tsherniak, A. et al. (2017). Defining a Cancer Dependency Map. *Cell* 170, 564-576.
 2. Meyers, R.M. et al. (2017). Computational correction of copy number effect improves specificity of CRISPR-Cas9 essentiality screens in cancer cells. *Nature Genetics* 49, 1779-1784.
-3. DepMap, Broad (2024). DepMap 24Q2 Public. *figshare*. https://doi.org/10.25452/figshare.plus.24667905
+3. DepMap, Broad (2024). DepMap Public. *figshare*. https://depmap.org/portal/download/ (Note: Cite the specific quarterly release used)
 
 ### Synthetic Lethality and PARP Inhibition
 
@@ -396,6 +396,6 @@ This enables:
 
 ---
 
-**Document Version**: 1.0  
+**Document Version**: 1.1  
 **Last Updated**: December 2024  
-**Corresponding Data Release**: DepMap Public 24Q2
+**Corresponding Data Release**: DepMap Public (quarterly releases)

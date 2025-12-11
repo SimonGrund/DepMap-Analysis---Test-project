@@ -6,7 +6,7 @@ This is a complete, ready-to-use R analysis project that downloads and analyzes 
 
 ## ✨ Key Features
 
-- ✅ **Fully automated data download** from DepMap Public 24Q2
+- ✅ **Fully automated data download** from DepMap Public (quarterly releases)
 - ✅ **Tidyverse-based analysis** using modern R best practices
 - ✅ **Statistical rigor** with t-tests, linear models, and effect sizes
 - ✅ **Publication-quality visualizations** (5 different plot types)
@@ -89,7 +89,7 @@ This validates the clinical use of PARP inhibitors (olaparib, talazoparib) in HR
 ## 🔬 Scientific Approach
 
 ### Data Source
-- **DepMap Public 24Q2** (2024 Q2)
+- **DepMap Public** (latest quarterly release)
 - 1000+ cancer cell lines
 - ~60-80 breast cancer lines
 - Genome-wide CRISPR screens
@@ -234,8 +234,9 @@ p1 + theme_bw() + scale_fill_manual(...)
 If you use this analysis, please cite:
 
 **DepMap Data**:
-> DepMap, Broad (2024): DepMap 24Q2 Public. figshare. Dataset.
-> https://doi.org/10.25452/figshare.plus.24667905
+> DepMap, Broad (2024): DepMap Public. figshare. Dataset.
+> https://depmap.org/portal/download/
+> Note: Cite the specific quarterly release version used in your analysis.
 
 **Original Synthetic Lethality Papers**:
 > Farmer, H. et al. (2005). Nature 434, 917-921.
@@ -266,10 +267,10 @@ If you use this analysis, please cite:
 
 ## 📝 Development Status
 
-**Current Version**: 1.0  
+**Current Version**: 1.1  
 **Status**: Complete and ready for use  
 **Last Updated**: December 2024  
-**Data Release**: DepMap Public 24Q2  
+**Data Release**: DepMap Public (quarterly releases - see script for current version)  
 
 ### Completed Features
 - ✅ Automated data download

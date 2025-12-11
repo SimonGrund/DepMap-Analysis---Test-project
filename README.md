@@ -47,7 +47,7 @@ install.packages(c(
 
 ### Step 1: Download DepMap Data
 
-Run the first script to download necessary data from DepMap Public 24Q2 release:
+Run the first script to download necessary data from the latest DepMap Public release:
 
 ```r
 source("01_download_depmap_data.R")
@@ -65,7 +65,9 @@ The script automatically:
 - Filters for breast cancer cell lines
 - Saves filtered metadata
 
-**Note**: Downloads may take 10-30 minutes depending on your connection.
+**Note**: 
+- Downloads may take 10-30 minutes depending on your connection
+- If you encounter 404 errors, the DepMap release version may have changed. See [Troubleshooting](#-troubleshooting) below
 
 ### Step 2: Run the Analysis
 
@@ -130,9 +132,10 @@ The analysis identifies HR deficiency based on damaging mutations in:
 ## 🔬 Methodology
 
 ### Data Source
-- **DepMap Public 24Q2** (2024 Quarter 2 release)
+- **DepMap Public** (latest quarterly release)
 - Consortium data from Broad Institute
 - Includes 1000+ cancer cell lines
+- Releases updated quarterly (Q1, Q2, Q3, Q4)
 
 ### Dependency Measurement
 - **CRISPR-Cas9 screens** systematically knock out each gene
@@ -164,7 +167,39 @@ This is a test/demonstration project. Feel free to:
 
 This project uses publicly available data from DepMap. Please cite DepMap appropriately if you use this analysis:
 
-> DepMap, Broad (2024): DepMap 24Q2 Public. figshare. Dataset. https://doi.org/10.25452/figshare.plus.24667905
+> DepMap, Broad (2024): DepMap Public. figshare. Dataset. https://depmap.org/portal/download/
+> 
+> Note: The specific release version (e.g., 24Q2, 24Q4) depends on when you download the data.
+
+## 🔧 Troubleshooting
+
+### 404 Errors During Data Download
+
+If you encounter 404 errors when downloading data, the DepMap release version has likely been updated. DepMap releases new data quarterly (e.g., 24Q2, 24Q4, 25Q1).
+
+**Solution 1: Update the Release Version**
+1. Open `01_download_depmap_data.R`
+2. Find the line: `depmap_base_url <- "https://depmap.org/portal/download/api/download/external?file_name=public_XXQX%2F"`
+3. Visit https://depmap.org/portal/download/ to find the current release version
+4. Update `XXQX` to the current version (e.g., `24Q4`, `25Q1`, etc.)
+5. Re-run the download script
+
+**Solution 2: Manual Download**
+1. Visit https://depmap.org/portal/download/
+2. Find the latest "DepMap Public" release
+3. Download these files:
+   - CRISPRGeneEffect.csv
+   - Model.csv
+   - OmicsSomaticMutations.csv
+   - OmicsExpressionProteinCodingGenesTPMLogp1.csv
+4. Place them in the `data/` directory (create it if it doesn't exist)
+5. Re-run the download script (it will skip existing files)
+
+### Other Common Issues
+
+- **Out of memory**: Close other applications or use a system with more RAM (8GB+ recommended)
+- **Package installation fails**: Try installing packages individually with `install.packages("package_name")`
+- **File not found errors**: Ensure you're in the project directory; use the RStudio project file for automatic path management
 
 ## 💡 Tips
 
@@ -172,6 +207,7 @@ This project uses publicly available data from DepMap. Please cite DepMap approp
 - **Subsequent runs**: Data files are cached, analysis runs quickly
 - **Memory**: Ensure adequate RAM (8GB+ recommended) for loading large datasets
 - **Customization**: Edit gene lists, thresholds, or visualizations as needed
+- **DepMap Updates**: DepMap releases new data quarterly; check for updates if downloads fail
 
 ## 📧 Contact
 

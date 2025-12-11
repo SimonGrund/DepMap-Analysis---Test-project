@@ -1,6 +1,11 @@
 # DepMap Data Download Script for Breast Cancer Cell Lines
-# This script downloads necessary data from DepMap Public 24Q2 release
+# This script downloads necessary data from DepMap Public (latest quarterly release)
 # Focus: Proving HR-deficient breast cancer cell lines depend on PARP1
+#
+# NOTE: DepMap releases new data quarterly (e.g., 24Q2, 24Q4, 25Q1)
+# If downloads fail with 404 errors, the release version may have changed.
+# Visit https://depmap.org/portal/download/ to find the current release and
+# update the 'depmap_base_url' variable below to the correct version.
 
 # Load required packages
 library(tidyverse)
@@ -11,8 +16,11 @@ if (!dir.exists(here("data"))) {
   dir.create(here("data"), recursive = TRUE)
 }
 
-# DepMap Public 24Q2 data URLs (most recent complete release)
-depmap_base_url <- "https://depmap.org/portal/download/api/download/external?file_name=public_24Q2%2F"
+# DepMap Public data URLs - currently set to 24Q4 release
+# Note: DepMap releases are quarterly. If these URLs fail with 404 errors, visit:
+# https://depmap.org/portal/download/ to find the current release version
+# and update the version string below (e.g., change 24Q4 to 25Q1)
+depmap_base_url <- "https://depmap.org/portal/download/api/download/external?file_name=public_24Q4%2F"
 
 # Define datasets to download
 datasets <- list(
@@ -41,7 +49,7 @@ datasets <- list(
   )
 )
 
-# Function to download files with progress
+# Function to download files with progress and better error handling
 download_depmap_file <- function(url, filename) {
   filepath <- here("data", filename)
   
@@ -66,6 +74,17 @@ download_depmap_file <- function(url, filename) {
     return(filepath)
   }, error = function(e) {
     message(sprintf("✗ Error downloading %s: %s", filename, e$message))
+    
+    # Check if it's a 404 error and provide helpful guidance
+    if (grepl("404|Not Found", e$message, ignore.case = TRUE)) {
+      message("   ⚠ 404 Error: The file was not found at the specified URL.")
+      message("   This usually means the DepMap release version has changed.")
+      message("   Please visit https://depmap.org/portal/download/ to:")
+      message("   1. Find the current release version")
+      message("   2. Download files manually, or")
+      message("   3. Update the 'depmap_base_url' in this script")
+    }
+    
     return(NULL)
   })
 }
@@ -90,6 +109,21 @@ if (success_count == length(datasets)) {
   message("✓ All data files are ready for analysis!")
 } else {
   warning("Some files failed to download. Check messages above for details.")
+  message("")
+  message("=== Manual Download Instructions ===")
+  message("If automatic downloads fail due to URL changes:")
+  message("1. Visit: https://depmap.org/portal/download/")
+  message("2. Look for the latest 'DepMap Public' release (e.g., 24Q4, 25Q1, etc.)")
+  message("3. Download these files manually:")
+  message("   - CRISPRGeneEffect.csv")
+  message("   - Model.csv")
+  message("   - OmicsSomaticMutations.csv")
+  message("   - OmicsExpressionProteinCodingGenesTPMLogp1.csv")
+  message(sprintf("4. Place them in: %s", here("data")))
+  message("5. Re-run this script - it will skip existing files")
+  message("")
+  message("Alternatively, update the 'depmap_base_url' variable in this script")
+  message("to point to the current release version.")
 }
 
 # Load and filter breast cancer cell lines

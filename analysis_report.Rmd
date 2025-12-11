@@ -57,7 +57,7 @@ This report analyzes data from the Cancer Dependency Map (DepMap) project to inv
 
 ## Data Source
 
-**DepMap Public Release 24Q2** (2024 Quarter 2)
+**DepMap Public Release** (latest quarterly release)
 
 Datasets used:
 1. **CRISPRGeneEffect.csv**: Gene dependency scores (CERES algorithm)
@@ -393,7 +393,7 @@ sessionInfo()
 
 3. Meyers, R.M. et al. (2017). Computational correction of copy number effect improves specificity of CRISPR-Cas9 essentiality screens in cancer cells. *Nature Genetics* 49, 1779-1784.
 
-4. DepMap, Broad (2024). DepMap 24Q2 Public. *figshare*. https://doi.org/10.25452/figshare.plus.24667905
+4. DepMap, Broad (2024). DepMap Public. *figshare*. https://depmap.org/portal/download/ (Note: Cite specific quarterly release used)
 
 5. Lord, C.J. & Ashworth, A. (2017). PARP inhibitors: Synthetic lethality in the clinic. *Science* 355, 1152-1158.
 

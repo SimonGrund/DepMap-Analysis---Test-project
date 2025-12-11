@@ -40,7 +40,7 @@ source("01_download_depmap_data.R")
 
 This script will:
 - Create a `data/` directory
-- Download 4 datasets from DepMap 24Q2 (~2-3 GB total)
+- Download 4 datasets from DepMap latest release (~2-3 GB total)
 - Filter for breast cancer cell lines
 - Save filtered metadata
 

@@ -8,7 +8,7 @@ This document describes all data files, variables, and their meanings used in th
 
 **Description**: Gene dependency scores from genome-wide CRISPR knockout screens
 
-**Source**: DepMap Public 24Q2
+**Source**: DepMap Public (quarterly release)
 
 **Dimensions**: ~1000 rows (cell lines) × ~18,000 columns (genes)
 
@@ -35,7 +35,7 @@ This document describes all data files, variables, and their meanings used in th
 
 **Description**: Cell line metadata and annotations
 
-**Source**: DepMap Public 24Q2
+**Source**: DepMap Public (quarterly release)
 
 **Key Variables**:
 
@@ -57,7 +57,7 @@ This document describes all data files, variables, and their meanings used in th
 
 **Description**: Somatic mutations detected by whole exome sequencing
 
-**Source**: DepMap Public 24Q2
+**Source**: DepMap Public (quarterly release)
 
 **Key Variables**:
 
@@ -90,7 +90,7 @@ This document describes all data files, variables, and their meanings used in th
 
 **Description**: Gene expression levels from RNA-seq
 
-**Source**: DepMap Public 24Q2
+**Source**: DepMap Public (quarterly release)
 
 **Format**: 
 - Similar to CRISPRGeneEffect.csv
@@ -405,7 +405,9 @@ DepMap cell lines are:
 
 ### Download Links
 
-Base URL: `https://depmap.org/portal/download/api/download/external?file_name=public_24Q2%2F`
+Base URL format: `https://depmap.org/portal/download/api/download/external?file_name=public_[VERSION]%2F`
+
+Where `[VERSION]` is the quarterly release (e.g., `24Q2`, `24Q4`, `25Q1`)
 
 **Files**:
 1. `CRISPRGeneEffect.csv`
@@ -413,14 +415,17 @@ Base URL: `https://depmap.org/portal/download/api/download/external?file_name=pu
 3. `OmicsSomaticMutations.csv`
 4. `OmicsExpressionProteinCodingGenesTPMLogp1.csv`
 
-**Note**: Links are automatically used by `01_download_depmap_data.R`
+**Note**: 
+- The specific version is defined in the `depmap_base_url` variable in `01_download_depmap_data.R`
+- DepMap releases data quarterly; if downloads fail with 404 errors, update the release version in the script
+- Visit https://depmap.org/portal/download/ to find the current release
 
 ### Data Version
 
-- **Release**: DepMap Public 24Q2
-- **Release Date**: 2024 Quarter 2
-- **DepMap Version**: 24Q2
+- **Release**: DepMap Public (latest quarterly release)
+- **Version Variable**: See `depmap_base_url` in `01_download_depmap_data.R`
 - **Reference Genome**: hg38
+- **Update Frequency**: Quarterly (Q1, Q2, Q3, Q4)
 
 ---
 
@@ -469,5 +474,5 @@ gene_name <- str_extract(colname, "^[^\\s]+")
 ---
 
 **Last Updated**: December 2024  
-**Data Version**: DepMap Public 24Q2  
+**Data Version**: DepMap Public (quarterly release)  
 **Document Version**: 1.0
