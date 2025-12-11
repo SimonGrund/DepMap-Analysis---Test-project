@@ -16,9 +16,10 @@ if (!dir.exists(here("data"))) {
   dir.create(here("data"), recursive = TRUE)
 }
 
-# DepMap Public 24Q4 data URLs (updated to latest release)
-# Note: DepMap releases are quarterly. If these URLs fail, visit:
-# https://depmap.org/portal/download/ to find the current release
+# DepMap Public data URLs - currently set to 24Q4 release
+# Note: DepMap releases are quarterly. If these URLs fail with 404 errors, visit:
+# https://depmap.org/portal/download/ to find the current release version
+# and update the version string below (e.g., change 24Q4 to 25Q1)
 depmap_base_url <- "https://depmap.org/portal/download/api/download/external?file_name=public_24Q4%2F"
 
 # Define datasets to download
