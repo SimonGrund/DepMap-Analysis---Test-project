@@ -1,0 +1,34 @@
+# R Package Requirements for DepMap PARP1 Dependency Analysis
+# 
+# Installation:
+# Run: source("00_setup_packages.R")
+# Or manually: install.packages(c("tidyverse", "here", "tidymodels", "broom", "ggbeeswarm", "patchwork"))
+
+# Core tidyverse packages
+tidyverse      # >= 2.0.0 - Data manipulation and visualization
+  ├─ dplyr     # Data manipulation
+  ├─ ggplot2   # Data visualization
+  ├─ tidyr     # Data tidying
+  ├─ readr     # Reading CSV files
+  ├─ purrr     # Functional programming
+  ├─ tibble    # Modern data frames
+  ├─ stringr   # String manipulation
+  └─ forcats   # Factor handling
+
+# Additional required packages
+here          # >= 1.0.1 - Path management (project-relative paths)
+tidymodels    # >= 1.0.0 - Tidy modeling framework
+broom         # >= 1.0.0 - Convert statistical objects to tidy format
+ggbeeswarm    # >= 0.7.0 - Better point distributions in plots
+patchwork     # >= 1.1.0 - Combine multiple ggplot2 plots
+
+# System Requirements
+# - R >= 4.0.0 (recommended: R >= 4.2.0)
+# - Sufficient RAM: 8GB+ recommended for loading large DepMap datasets
+# - Disk space: ~5GB for data files and outputs
+# - Internet connection: Required for downloading DepMap data (~2-3 GB)
+
+# Notes:
+# - All packages are available on CRAN
+# - tidyverse is a meta-package that installs multiple packages
+# - First-time installation may take several minutes
