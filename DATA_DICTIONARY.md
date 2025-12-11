@@ -405,7 +405,9 @@ DepMap cell lines are:
 
 ### Download Links
 
-Base URL: `https://depmap.org/portal/download/api/download/external?file_name=public_24Q4%2F`
+Base URL format: `https://depmap.org/portal/download/api/download/external?file_name=public_[VERSION]%2F`
+
+Where `[VERSION]` is the quarterly release (e.g., `24Q2`, `24Q4`, `25Q1`)
 
 **Files**:
 1. `CRISPRGeneEffect.csv`
@@ -414,14 +416,14 @@ Base URL: `https://depmap.org/portal/download/api/download/external?file_name=pu
 4. `OmicsExpressionProteinCodingGenesTPMLogp1.csv`
 
 **Note**: 
-- Links are automatically used by `01_download_depmap_data.R`
-- DepMap releases data quarterly; if downloads fail with 404 errors, update the release version in the base URL
+- The specific version is defined in the `depmap_base_url` variable in `01_download_depmap_data.R`
+- DepMap releases data quarterly; if downloads fail with 404 errors, update the release version in the script
 - Visit https://depmap.org/portal/download/ to find the current release
 
 ### Data Version
 
 - **Release**: DepMap Public (latest quarterly release)
-- **Current Version in Script**: 24Q4
+- **Version Variable**: See `depmap_base_url` in `01_download_depmap_data.R`
 - **Reference Genome**: hg38
 - **Update Frequency**: Quarterly (Q1, Q2, Q3, Q4)
 

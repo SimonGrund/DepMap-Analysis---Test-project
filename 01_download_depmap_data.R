@@ -1,10 +1,11 @@
 # DepMap Data Download Script for Breast Cancer Cell Lines
-# This script downloads necessary data from DepMap Public 24Q4 release
+# This script downloads necessary data from DepMap Public (latest quarterly release)
 # Focus: Proving HR-deficient breast cancer cell lines depend on PARP1
 #
 # NOTE: DepMap releases new data quarterly (e.g., 24Q2, 24Q4, 25Q1)
 # If downloads fail with 404 errors, the release version may have changed.
-# Visit https://depmap.org/portal/download/ to find the current release.
+# Visit https://depmap.org/portal/download/ to find the current release and
+# update the 'depmap_base_url' variable below to the correct version.
 
 # Load required packages
 library(tidyverse)

@@ -270,7 +270,7 @@ If you use this analysis, please cite:
 **Current Version**: 1.1  
 **Status**: Complete and ready for use  
 **Last Updated**: December 2024  
-**Data Release**: DepMap Public (quarterly releases - script updated for 24Q4)  
+**Data Release**: DepMap Public (quarterly releases - see script for current version)  
 
 ### Completed Features
 - ✅ Automated data download

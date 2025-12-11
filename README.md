@@ -179,9 +179,9 @@ If you encounter 404 errors when downloading data, the DepMap release version ha
 
 **Solution 1: Update the Release Version**
 1. Open `01_download_depmap_data.R`
-2. Find the line: `depmap_base_url <- "https://depmap.org/portal/download/api/download/external?file_name=public_24Q4%2F"`
+2. Find the line: `depmap_base_url <- "https://depmap.org/portal/download/api/download/external?file_name=public_XXQX%2F"`
 3. Visit https://depmap.org/portal/download/ to find the current release version
-4. Update `24Q4` to the current version (e.g., `25Q1`)
+4. Update `XXQX` to the current version (e.g., `24Q4`, `25Q1`, etc.)
 5. Re-run the download script
 
 **Solution 2: Manual Download**
